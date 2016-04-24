@@ -24,6 +24,13 @@
     <string name="boot">Boot</string>
     <string name="garlic">Garlic</string>
     <string name="cucumber">Cucumber</string>
+    <string name="apply3">Apply</string>
+    <string name="kefir">kefir</string>
+    <string name="cheese">Сыр</string>
+    <string name="milk">Молоко</string>
+    <string name="sour">Сметана</string>
+    <string name="cream">Сливки</string>
+    <string name="milkb">Milk</string>
 
     //Название продукта
     <string-array name="Ingredient_name">
