@@ -37,10 +37,11 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    Button meatB, veganB, result;
+    Button meatB, veganB, result, milkB;
     View view;
     MeatFragment mF;
     vegetableFragment vF;
+    milk milkF;
     ResultFragment rF;
     TextView txt;
     FragmentTransaction fTrans;
@@ -77,7 +78,9 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
         super.onCreate(savedInstanceState);
         mF = new MeatFragment();
         vF = new vegetableFragment();
+        milkF = new milk();
         rF = new ResultFragment();
+
         staticString.str = new ArrayList<String>();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -92,10 +95,12 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
         view = inflater.inflate(R.layout.fragment_fragment_ingridients, container, false);
         meatB = (Button) view.findViewById(R.id.meatButton);
         veganB = (Button) view.findViewById(R.id.vegetableButton);
+        milkB = (Button) view.findViewById(R.id.milkB);
         result = (Button) view.findViewById(R.id.search);
         result.setOnClickListener(this);
         meatB.setOnClickListener(this);
         veganB.setOnClickListener(this);
+        milkB.setOnClickListener(this);
         txt = (TextView) view.findViewById(R.id.textView2);
         txt.setText(tmp);
         for (int i=0; i<staticString.str.size(); i++) {
@@ -155,6 +160,9 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
                 break;
             case R.id.vegetableButton:
                 fTrans.replace(R.id.conteiner, vF);
+                break;
+            case R.id.milkB:
+                fTrans.replace(R.id.conteiner, milkF);
                 break;
             case R.id.search:
                 fTrans.replace(R.id.conteiner, rF);
