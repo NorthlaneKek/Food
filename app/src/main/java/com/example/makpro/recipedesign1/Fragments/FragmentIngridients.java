@@ -37,10 +37,11 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    Button meatB, veganB, result, milkB;
+    Button meatB, veganB, result, milkB, fruitB;
     View view;
     MeatFragment mF;
     vegetableFragment vF;
+    fruit fruitF;
     milk milkF;
     ResultFragment rF;
     TextView txt;
@@ -79,6 +80,7 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
         mF = new MeatFragment();
         vF = new vegetableFragment();
         milkF = new milk();
+        fruitF = new fruit();
         rF = new ResultFragment();
 
         staticString.str = new ArrayList<String>();
@@ -96,11 +98,13 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
         meatB = (Button) view.findViewById(R.id.meatButton);
         veganB = (Button) view.findViewById(R.id.vegetableButton);
         milkB = (Button) view.findViewById(R.id.milkB);
+        fruitB = (Button) view.findViewById(R.id.fruitButton);
         result = (Button) view.findViewById(R.id.search);
         result.setOnClickListener(this);
         meatB.setOnClickListener(this);
         veganB.setOnClickListener(this);
         milkB.setOnClickListener(this);
+        fruitB.setOnClickListener(this);
         txt = (TextView) view.findViewById(R.id.textView2);
         txt.setText(tmp);
         for (int i=0; i<staticString.str.size(); i++) {
@@ -166,6 +170,9 @@ public class FragmentIngridients extends Fragment implements View.OnClickListene
                 break;
             case R.id.search:
                 fTrans.replace(R.id.conteiner, rF);
+                break;
+            case R.id.fruitButton:
+                fTrans.replace(R.id.conteiner, fruitF);
                 break;
         }
         fTrans.addToBackStack(null);
